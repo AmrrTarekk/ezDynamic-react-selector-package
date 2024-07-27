@@ -1,1 +1,1 @@
-export * from "./Amr";
+export * from "./components/Amr";
