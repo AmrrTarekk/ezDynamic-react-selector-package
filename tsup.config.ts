@@ -9,4 +9,5 @@ export default defineConfig({
   clean: true,
   jsxFactory: "React.createElement",
   jsxFragment: "React.Fragment",
+  external: ["react", "react-dom"],
 });

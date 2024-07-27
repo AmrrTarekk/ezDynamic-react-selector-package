@@ -6,10 +6,10 @@
     "strictNullChecks": true,
     "target": "ES2022",
     "moduleResolution": "Node",
-    "module": "Commonjs",
+    "module": "ESNext",
     "declaration": true,
     "isolatedModules": true,
-    "noEmit": true,
+    "noEmit": false,
     "outDir": "dist",
     "jsx": "react-jsx"
   },
