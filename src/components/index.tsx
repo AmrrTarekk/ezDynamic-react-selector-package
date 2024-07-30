@@ -1,20 +1,26 @@
-import React, { ReactNode, useEffect, useRef, useState } from "react";
+import React, { Fragment, ReactNode, useEffect, useRef, useState } from "react";
 import "../index.css";
 import { Props } from "./types";
+import ExpandIcon from "./ExpandMore.svg";
 
 export const Selector = ({
   label,
   children,
+  list = [],
   placeholder,
   openMenu,
   onToggle,
+  onSelect,
   disable = false,
+  selectorStyle = "",
 }: Props) => {
   const [position, setPosition] = useState<{ block: "top" | "bottom" }>({
     block: "bottom",
   });
+
   const dropdownRef = useRef<HTMLDivElement | null>(null);
   const parentRef = useRef<HTMLDivElement | null>(null);
+
   const handleOpenMenu = (e: any) => {
     e.stopPropagation();
     onToggle();
@@ -53,11 +59,12 @@ export const Selector = ({
 
     return () => document.body.removeEventListener("click", focusListener);
   }, [onToggle, openMenu]);
+
   return (
-    <div className="customDropDownMenu">
+    <div className="selector">
       <div
         ref={parentRef}
-        className={"selectField"}
+        className={`selectField ${selectorStyle}`}
         onClick={(e) => {
           if (!disable) {
             handleOpenMenu(e);
@@ -76,7 +83,7 @@ export const Selector = ({
         ) : (
           <p style={{ color: "#979797" }}>{placeholder}</p>
         )}
-        icon
+        <img src={ExpandIcon} alt="expand-icon" className="icon" />
       </div>
       <div
         style={{ visibility: openMenu ? "visible" : "hidden" }}
@@ -87,7 +94,22 @@ export const Selector = ({
           onToggle();
         }}
       >
-        <div className={"dropdownBox"}>{children}</div>
+        <div className={"dropdownBox"}>
+          {children ? (
+            children
+          ) : (
+            <div className="list">
+              {list.map((item, index) => (
+                <Fragment key={index}>
+                  <div onClick={() => onSelect?.(item.value)} className="menu">
+                    {item.title}
+                  </div>
+                  {index !== list.length - 1 && <hr />}
+                </Fragment>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

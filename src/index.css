@@ -1,9 +1,9 @@
-.customDropDownMenu {
+.selector {
   position: relative;
   width: 100%;
 }
 
-.customDropDownMenu .selectField {
+.selector .selectField {
   cursor: pointer;
   width: 100%;
   display: flex;
@@ -15,11 +15,11 @@
   padding-block: 7px;
 }
 
-.customDropDownMenu .selectField svg path {
+.selector .selectField svg path {
   fill: #979797;
 }
 
-.customDropDownMenu .dropdown {
+.selector .dropdown {
   position: absolute;
   z-index: 10;
   left: 0;
@@ -33,7 +33,7 @@
   box-shadow: 0px 0px 4px 0px #00000040;
 }
 
-.customDropDownMenu .dropdown .dropdownBox {
+.selector .dropdown .dropdownBox {
   max-height: 20vh;
   height: 100%;
   overflow-y: auto;
@@ -41,14 +41,30 @@
   flex-direction: column;
 }
 
-.customDropDownMenu .dropdown .dropdownBox::-webkit-scrollbar {
+.selector .dropdown .dropdownBox::-webkit-scrollbar {
   width: 5px;
   height: 5px;
 }
 
-.customDropDownMenu .dropdown .dropdownBox::-webkit-scrollbar-thumb {
+.selector .dropdown .dropdownBox::-webkit-scrollbar-thumb {
   background: gray;
   border-radius: 10px;
+}
+
+.selector .dropdown .dropdownBox .list {
+  display: flex;
+  flex-direction: column;
+}
+
+.selector .dropdown .dropdownBox .list .menu {
+  cursor: pointer;
+  padding: 5px 10px;
+  margin-inline-end: 10px;
+}
+
+.selector .dropdown .dropdownBox .list .menu:hover {
+  border-radius: 4px;
+  background: #a419161c;
 }
 
 .top {
