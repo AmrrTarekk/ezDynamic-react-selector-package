@@ -47,7 +47,7 @@ export const Selector = ({
         !dropdownRef.current.contains(event.target as Node)
       ) {
         onToggle();
-        // setPosition({ block: "bottom" });
+        // setPosition({ block: 'bottom' });
       }
     };
 
