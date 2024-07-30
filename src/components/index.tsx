@@ -26,17 +26,20 @@ export const Selector = ({
     onToggle();
 
     function calculatePosition() {
-      const dropDown = dropdownRef.current?.getBoundingClientRect();
-      const parent = parentRef.current?.getBoundingClientRect();
-      if (!dropDown || !parent) return;
+      if (dropdownRef.current && parentRef.current) {
+        const dropDown = dropdownRef.current.getBoundingClientRect();
 
-      const { height } = dropDown;
-      const { top: parentTop, height: parentHeight } = parent;
+        const parent = parentRef.current.getBoundingClientRect();
+        if (!dropDown || !parent) return;
 
-      if (parentTop + parentHeight + height >= window.innerHeight) {
-        setPosition({ block: "top" });
-      } else {
-        setPosition({ block: "bottom" });
+        const { height } = dropDown;
+        const { top: parentTop, height: parentHeight } = parent;
+
+        if (parentTop + parentHeight + height >= window.innerHeight) {
+          setPosition({ block: "top" });
+        } else {
+          setPosition({ block: "bottom" });
+        }
       }
     }
 
