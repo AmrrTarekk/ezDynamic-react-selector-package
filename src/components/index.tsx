@@ -24,11 +24,12 @@ export const Selector = ({
   const handleOpenMenu = (e: any) => {
     e.stopPropagation();
     onToggle();
-    (() => {
+
+    function calculatePosition() {
       const dropDown = dropdownRef.current?.getBoundingClientRect();
       const parent = parentRef.current?.getBoundingClientRect();
-
       if (!dropDown || !parent) return;
+
       const { height } = dropDown;
       const { top: parentTop, height: parentHeight } = parent;
 
@@ -37,7 +38,9 @@ export const Selector = ({
       } else {
         setPosition({ block: "bottom" });
       }
-    })();
+    }
+
+    calculatePosition();
   };
 
   useEffect(() => {
