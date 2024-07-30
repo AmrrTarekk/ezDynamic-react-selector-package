@@ -1,4 +1,4 @@
-import React, { Fragment, ReactNode, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "../index.css";
 import { Props } from "./types";
 import ExpandIcon from "./ExpandMore.svg";
@@ -106,7 +106,7 @@ export const Selector = ({
           ) : (
             <div className="list">
               {list.map((item, index) => (
-                <Fragment key={index}>
+                <div key={index}>
                   <div
                     onClick={function () {
                       if (onSelect) {
@@ -118,7 +118,7 @@ export const Selector = ({
                     {item.title}
                   </div>
                   {index !== list.length - 1 && <hr />}
-                </Fragment>
+                </div>
               ))}
             </div>
           )}
