@@ -12,8 +12,12 @@
   "author": "AmrrTarekk",
   "license": "MIT",
   "devDependencies": {
+    "@babel/plugin-proposal-optional-chaining": "^7.21.0",
+    "@babel/preset-env": "^7.25.2",
+    "@types/node": "^22.0.0",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
+    "esbuild-plugin-babel": "^0.2.3",
     "tsup": "^8.2.3",
     "typescript": "^5.5.4"
   },
