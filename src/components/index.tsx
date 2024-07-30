@@ -107,7 +107,14 @@ export const Selector = ({
             <div className="list">
               {list.map((item, index) => (
                 <Fragment key={index}>
-                  <div onClick={() => onSelect?.(item.value)} className="menu">
+                  <div
+                    onClick={function () {
+                      if (onSelect) {
+                        onSelect(item.value);
+                      }
+                    }}
+                    className="menu"
+                  >
                     {item.title}
                   </div>
                   {index !== list.length - 1 && <hr />}
