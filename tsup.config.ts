@@ -18,10 +18,7 @@ export default defineConfig({
     options.plugins = [
       babel({
         filter: /\.tsx?$/,
-        config: {
-          presets: ["@babel/preset-env", "@babel/preset-react"],
-          plugins: ["@babel/plugin-proposal-optional-chaining"],
-        },
+        configFile: "./.babelrc",
       }),
     ];
   },
