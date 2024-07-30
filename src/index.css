@@ -56,15 +56,15 @@
   flex-direction: column;
 }
 
-.selector .dropdown .dropdownBox .list .menu {
+.selector .dropdown .dropdownBox .list .menu > div {
   cursor: pointer;
-  padding: 5px 10px;
-  margin-inline-end: 10px;
 }
 
-.selector .dropdown .dropdownBox .list .menu:hover {
+.selector .dropdown .dropdownBox .list .menu > div:hover {
   border-radius: 4px;
   background: #a419161c;
+  margin-inline-end: 10px;
+  padding: 5px 10px;
 }
 
 .top {
