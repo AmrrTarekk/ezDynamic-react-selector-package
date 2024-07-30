@@ -3,7 +3,7 @@ import "../index.css";
 import { Props } from "./types";
 import ExpandIcon from "./ExpandMore.svg";
 
-export const Selector = ({
+export default function Selector({
   label,
   children,
   list = [],
@@ -13,7 +13,7 @@ export const Selector = ({
   onSelect,
   disable = false,
   selectorStyle = "",
-}: Props) => {
+}: Props) {
   const [position, setPosition] = useState<{ block: "top" | "bottom" }>({
     block: "bottom",
   });
@@ -126,4 +126,4 @@ export const Selector = ({
       </div>
     </div>
   );
-};
+}
