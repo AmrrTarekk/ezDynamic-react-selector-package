@@ -1,26 +1,19 @@
 const path = require("path");
 
 module.exports = {
-  // Entry point for the application
   entry: "./src/index.tsx",
-
-  // Output configuration
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
-    module: true, // Ensure module type is handled
+    module: true, // Enable ES module syntax
     library: {
-      type: "module", // Output as an ES module
+      type: "module", // Output as ES module
     },
-    clean: true, // Clean the output directory before each build
+    clean: true,
   },
-
-  // Enable ES module syntax
   experiments: {
-    outputModule: true,
+    outputModule: true, // Enable ES module output
   },
-
-  // Module rules to handle different types of files
   module: {
     rules: [
       {
@@ -30,22 +23,23 @@ module.exports = {
           loader: "babel-loader",
           options: {
             presets: [
-              "@babel/preset-env", // Compile modern JavaScript to compatible versions
-              "@babel/preset-react", // Transform JSX into JavaScript
-              "@babel/preset-typescript", // Compile TypeScript to JavaScript
+              "@babel/preset-env",
+              "@babel/preset-react",
+              "@babel/preset-typescript",
             ],
-            plugins: ["@babel/plugin-proposal-optional-chaining"], // Enable optional chaining support
+            plugins: [
+              "@babel/plugin-proposal-optional-chaining",
+              "@babel/plugin-transform-runtime", // Add this plugin
+            ],
           },
         },
       },
       {
         test: /\.svg$/,
-        type: "asset/resource", // Handle SVGs as assets
+        type: "asset/resource",
       },
     ],
   },
-
-  // Resolve file extensions and aliases
   resolve: {
     extensions: [".js", ".jsx", ".ts", ".tsx"],
     alias: {
@@ -53,7 +47,5 @@ module.exports = {
       "react-dom": path.resolve(__dirname, "node_modules/react-dom"),
     },
   },
-
-  // Development settings (optional)
-  devtool: "source-map", // Generate source maps for debugging
+  devtool: "source-map",
 };
