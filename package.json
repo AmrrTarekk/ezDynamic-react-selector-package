@@ -1,6 +1,6 @@
 {
   "name": "ezdynamic-react-selector",
-  "version": "2.8.0",
+  "version": "2.9.0",
   "description": "Easy Dynamic react selector, it gives you the freedom to custom your selections according to your own style.",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
