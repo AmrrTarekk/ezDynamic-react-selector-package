@@ -1,1 +1,1 @@
-# Starting up foing something greate soon...!
+# Starting up doing something great soon...!
