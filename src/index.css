@@ -14,7 +14,12 @@
   padding-inline: 16px;
   padding-block: 7px;
 }
-
+.placeholder {
+  font-weight: 400;
+  font-size: 16px;
+  color: #979797;
+  user-select: none;
+}
 .selector .selectField svg path {
   fill: #979797;
 }
@@ -33,7 +38,7 @@
   box-shadow: 0px 0px 4px 0px #00000040;
 }
 
-.selector .dropdown .dropdownBox {
+.selector .dropdown .menu {
   max-height: 20vh;
   height: 100%;
   overflow-y: auto;
@@ -41,32 +46,36 @@
   flex-direction: column;
 }
 
-.selector .dropdown .dropdownBox::-webkit-scrollbar {
+.selector .dropdown .menu::-webkit-scrollbar {
   width: 5px;
   height: 5px;
 }
 
-.selector .dropdown .dropdownBox::-webkit-scrollbar-thumb {
+.selector .dropdown .menu::-webkit-scrollbar-thumb {
   background: gray;
   border-radius: 10px;
 }
 
-.selector .dropdown .dropdownBox .list {
+.selector .dropdown .menu .list {
   display: flex;
   flex-direction: column;
 }
 
-.selector .dropdown .dropdownBox .list .menu {
+.selector .dropdown .menu .list .item {
   cursor: pointer;
+  margin-inline-end: 10px;
+  padding: 4px 5px;
 }
 
-.selector .dropdown .dropdownBox .list .menu:hover {
+.selector .dropdown .menu .list .item:hover {
   border-radius: 4px;
   background: #a419161c;
-  margin-inline-end: 10px;
-  padding: 5px 10px;
 }
-.selector .dropdown .dropdownBox .list hr {
+.selector .dropdown .menu .list hr {
+  border-width: 0;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.12);
+  border-bottom-width: thin;
   margin-block: 5px;
   margin-inline-end: 10px;
 }
