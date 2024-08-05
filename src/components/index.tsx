@@ -68,6 +68,7 @@ export const Selector = ({
 
   return (
     <div className="selector">
+      {/* css: selectorStyle */}
       <div
         ref={parentRef}
         className={`selectField ${selectorStyle}`}
@@ -86,11 +87,23 @@ export const Selector = ({
           ) : (
             label
           )
+        ) : typeof placeholder === "string" ? (
+          <p
+            style={{
+              fontWeight: "400",
+              fontSize: "16px",
+              color: "#979797",
+              userSelect: "none",
+            }}
+          >
+            {placeholder}
+          </p>
         ) : (
-          <p style={{ color: "#979797" }}>{placeholder}</p>
+          placeholder
         )}
         <img src={ExpandIcon} alt="expand-icon" className="icon" />
       </div>
+      {/* css: dropdown */}
       <div
         style={{ visibility: openMenu ? "visible" : "hidden" }}
         ref={dropdownRef}
@@ -100,13 +113,16 @@ export const Selector = ({
           onToggle();
         }}
       >
+        {/* css: dropdownBox */}
         <div className={"dropdownBox"}>
           {children ? (
             children
           ) : (
+            // css: list
             <div className="list">
               {list.map((item, index) => (
                 <div key={index}>
+                  {/* css: menu */}
                   <div
                     onClick={function () {
                       if (onSelect) {
