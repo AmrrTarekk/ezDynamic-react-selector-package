@@ -79,7 +79,9 @@ export const Selector = ({
       {/* css: selectorStyle */}
       <div
         ref={parentRef}
-        className={`selectField ${stylesControl.selector}`}
+        className={`selectField ${
+          stylesControl.selector ? stylesControl.selector : ""
+        }`}
         onClick={(e) => {
           if (!disable) {
             handleOpenMenu(e);
@@ -91,12 +93,22 @@ export const Selector = ({
       >
         {label ? (
           typeof label === "string" ? (
-            <p className={`label ${stylesControl.label}`}>{label}</p>
+            <p
+              className={`label ${
+                stylesControl.label ? stylesControl.label : ""
+              }`}
+            >
+              {label}
+            </p>
           ) : (
             label
           )
         ) : typeof placeholder === "string" ? (
-          <p className={`placeholder ${stylesControl.placeholder}`}>
+          <p
+            className={`placeholder ${
+              stylesControl.placeholder ? stylesControl.placeholder : ""
+            }}`}
+          >
             {placeholder}
           </p>
         ) : (
@@ -125,7 +137,7 @@ export const Selector = ({
         style={{ visibility: openMenu ? "visible" : "hidden" }}
         ref={dropdownRef}
         className={`dropdown ${position.block === "top" ? "top" : "bottom"} ${
-          stylesControl.dropdown
+          stylesControl.dropdown ? stylesControl.dropdown : ""
         }`}
         onClick={(e) => {
           e.stopPropagation();
@@ -133,7 +145,9 @@ export const Selector = ({
         }}
       >
         {/* css: dropdownBox */}
-        <div className={`menu ${stylesControl.menu}`}>
+        <div
+          className={`menu ${stylesControl.menu ? stylesControl.menu : ""}}`}
+        >
           {children ? (
             children
           ) : (
@@ -148,7 +162,9 @@ export const Selector = ({
                         onSelect(item.value);
                       }
                     }}
-                    className={`item ${stylesControl.item}`}
+                    className={`item ${
+                      stylesControl.item ? stylesControl.item : ""
+                    }`}
                   >
                     {item.title}
                   </div>

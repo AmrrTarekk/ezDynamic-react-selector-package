@@ -10,7 +10,7 @@ It's a versatile React component for dynamic selection scenarios. It provides an
 
 - **Dynamic Selection:** Allows users to dynamically add, remove, and select items.
 - **Customizable:** Supports various customization options for styling and behavior.
-- **Flexible Integration::** Easily integrates with existing React applications and state management solutions with any desired design.
+- **Flexible Integration:** Easily integrates with existing React applications and state management solutions with any desired design.
 
 ## Install
 
