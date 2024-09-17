@@ -18,6 +18,7 @@ It's a versatile React component for dynamic selection scenarios. It provides an
 npm install ezdynamic-react-selector
 ```
 
+<!--
 ## Usage
 
 ```javascript
@@ -80,4 +81,4 @@ const App = () => (
 );
 
 createRoot(document.getElementById("app")).render(<App />);
-```
+``` -->
