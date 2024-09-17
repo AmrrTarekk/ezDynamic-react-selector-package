@@ -55,7 +55,12 @@ export const Selector = ({
 
     calculatePosition();
   };
-
+  const onDelete = (item: unknown) => {
+    if (item === selectedItem) {
+      setSelectedItem(null);
+      onSelect?.(null);
+    }
+  };
   useEffect(() => {
     const focusListener = (event: MouseEvent) => {
       if (
@@ -167,7 +172,8 @@ export const Selector = ({
                       stylesControl.item ? stylesControl.item : ""
                     } ${selectedItem === item.value ? "active" : ""}`}
                   >
-                    {item.title}
+                    {item.title}{" "}
+                    <span onClick={() => onDelete(item.value)}>x</span>
                   </div>
                   {index !== list.length - 1 && <hr />}
                 </div>
