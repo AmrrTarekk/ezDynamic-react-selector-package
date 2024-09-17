@@ -13,6 +13,10 @@
   border-radius: 33px;
   padding-inline: 16px;
   padding-block: 7px;
+  /* new added */
+  height: 30px;
+  min-width: 10rem;
+  text-transform: capitalize;
 }
 .placeholder {
   font-weight: 400;
@@ -36,6 +40,9 @@
   border: 1px solid #dadada4d;
   border-radius: 15px;
   box-shadow: 0px 0px 4px 0px #00000040;
+  /* new added */
+  text-transform: capitalize;
+  text-align: start;
 }
 
 .selector .dropdown .menu {

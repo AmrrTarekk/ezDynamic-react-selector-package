@@ -107,7 +107,7 @@ export const Selector = ({
           <p
             className={`placeholder ${
               stylesControl.placeholder ? stylesControl.placeholder : ""
-            }}`}
+            }`}
           >
             {placeholder}
           </p>
@@ -145,9 +145,7 @@ export const Selector = ({
         }}
       >
         {/* css: dropdownBox */}
-        <div
-          className={`menu ${stylesControl.menu ? stylesControl.menu : ""}}`}
-        >
+        <div className={`menu ${stylesControl.menu ? stylesControl.menu : ""}`}>
           {children ? (
             children
           ) : (
