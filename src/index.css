@@ -74,6 +74,10 @@
   padding: 4px 5px;
 }
 
+.selector .dropdown .menu .list .item.active {
+  background-color: #a419161c;
+}
+
 .selector .dropdown .menu .list .item:hover {
   border-radius: 4px;
   background: #a419161c;

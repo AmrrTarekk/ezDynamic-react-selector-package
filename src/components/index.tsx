@@ -26,6 +26,8 @@ export const Selector = ({
     block: "bottom",
   });
 
+  const [selectedItem, setSelectedItem] = useState<unknown>();
+
   const dropdownRef = useRef<HTMLDivElement | null>(null);
   const parentRef = useRef<HTMLDivElement | null>(null);
 
@@ -158,11 +160,12 @@ export const Selector = ({
                     onClick={function () {
                       if (onSelect) {
                         onSelect(item.value);
+                        setSelectedItem(item.value);
                       }
                     }}
                     className={`item ${
                       stylesControl.item ? stylesControl.item : ""
-                    }`}
+                    } ${selectedItem === item.value ? "active" : ""}`}
                   >
                     {item.title}
                   </div>
