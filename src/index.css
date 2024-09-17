@@ -43,6 +43,7 @@
   /* new added */
   text-transform: capitalize;
   text-align: start;
+  margin-inline-start: 5px;
 }
 
 .selector .dropdown .menu {

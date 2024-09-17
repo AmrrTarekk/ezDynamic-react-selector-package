@@ -18,67 +18,91 @@ It's a versatile React component for dynamic selection scenarios. It provides an
 npm install ezdynamic-react-selector
 ```
 
-<!--
 ## Usage
 
 ```javascript
+import "ezdynamic-react-selector/dist/index.css";
+import { Selector } from "ezdynamic-react-selector";
+import styles from "./App.module.css";
 import { useState } from "react";
-import { createRoot } from "react-dom/client";
 
-import { createContext, useContextSelector } from "use-context-selector";
+const arr = [
+  {
+    title: "one",
+    value: "one",
+  },
+  {
+    title: "two",
+    value: "two",
+  },
+  {
+    title: "three",
+    value: "three",
+  },
+  {
+    title: "four",
+    value: "four",
+  },
+  {
+    title: "five",
+    value: "five",
+  },
+  {
+    title: "six ",
+    value: "six",
+  },
+];
 
-const context = createContext(null);
-
-const Counter1 = () => {
-  const count1 = useContextSelector(context, (v) => v[0].count1);
-  const setState = useContextSelector(context, (v) => v[1]);
-  const increment = () =>
-    setState((s) => ({
-      ...s,
-      count1: s.count1 + 1,
-    }));
+function App() {
+  const [open, setOpen] = useState(false);
+  const [selectedValue, setSelectedValue] = useState("");
+  const handleToggle = () => {
+    setOpen(!open);
+  };
   return (
-    <div>
-      <span>Count1: {count1}</span>
-      <button type="button" onClick={increment}>
-        +1
-      </button>
-      {Math.random()}
+    <div
+      className={styles.App}
+      style={{
+        padding: "20px",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+        }}
+      >
+        <Selector
+          placeholder="Select Value"
+          label={selectedValue}
+          openMenu={open}
+          onToggle={() => handleToggle()}
+          list={arr}
+          onSelect={(value) => setSelectedValue(value)}
+          stylesControl={{
+            selector: styles.selector,
+            dropdown: styles.dropdown,
+            placeholder: styles.placeholder,
+          }}
+        />
+      </div>
     </div>
   );
-};
+}
 
-const Counter2 = () => {
-  const count2 = useContextSelector(context, (v) => v[0].count2);
-  const setState = useContextSelector(context, (v) => v[1]);
-  const increment = () =>
-    setState((s) => ({
-      ...s,
-      count2: s.count2 + 1,
-    }));
-  return (
-    <div>
-      <span>Count2: {count2}</span>
-      <button type="button" onClick={increment}>
-        +1
-      </button>
-      {Math.random()}
-    </div>
-  );
-};
+export default App;
+```
 
-const StateProvider = ({ children }) => (
-  <context.Provider value={useState({ count1: 0, count2: 0 })}>
-    {children}
-  </context.Provider>
-);
+```css
+// As Example
 
-const App = () => (
-  <StateProvider>
-    <Counter1 />
-    <Counter2 />
-  </StateProvider>
-);
-
-createRoot(document.getElementById("app")).render(<App />);
-``` -->
+.selector {
+}
+.dropdown {
+}
+.placeholder {
+}
+```
