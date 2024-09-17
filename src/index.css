@@ -75,7 +75,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
 }
 
 .selector .dropdown .menu .list .item.active {
