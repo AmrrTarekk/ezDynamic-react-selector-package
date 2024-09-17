@@ -80,6 +80,11 @@
 .selector .dropdown .menu .list .item.active {
   background-color: #a419161c;
 }
+.selector .dropdown .menu .list .item span {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .selector .dropdown .menu .list .item:hover {
   border-radius: 4px;
