@@ -174,7 +174,8 @@ export const Selector = ({
                   >
                     {item.title}{" "}
                     <span
-                      onClick={function () {
+                      onClick={function (e) {
+                        e.stopPropagation();
                         onDelete(item.value);
                       }}
                     >
