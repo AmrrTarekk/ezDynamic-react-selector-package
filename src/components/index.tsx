@@ -173,7 +173,13 @@ export const Selector = ({
                     } ${selectedItem === item.value ? "active" : ""}`}
                   >
                     {item.title}{" "}
-                    <span onClick={() => onDelete(item.value)}>x</span>
+                    <span
+                      onClick={function () {
+                        onDelete(item.value);
+                      }}
+                    >
+                      x
+                    </span>
                   </div>
                   {index !== list.length - 1 && <hr />}
                 </div>
