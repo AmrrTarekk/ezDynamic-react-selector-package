@@ -20,7 +20,22 @@ npm install ezdynamic-react-selector
 
 ## Usage
 
-```javascript
+you should always import styles before it:
+
+```ts
+import "ezdynamic-react-selector/dist/index.css";
+import { Selector } from "ezdynamic-react-selector";
+```
+
+Here are examples of how you can use it.
+
+### Sinlge Selection: 
+
+#### Examples
+
+##### First way: 
+
+```ts
 import "ezdynamic-react-selector/dist/index.css";
 import { Selector } from "ezdynamic-react-selector";
 import styles from "./App.module.css";
@@ -105,4 +120,10 @@ export default App;
 }
 .placeholder {
 }
+```
+
+##### or you can simply wrap your code inside of it and customize the selection condition:
+
+```ts 
+
 ```
