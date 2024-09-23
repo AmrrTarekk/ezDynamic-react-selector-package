@@ -33,6 +33,15 @@ Here are examples of how you can use it.
 
 #### Examples
 
+#### Set up the selected array as:
+
+```ts
+const selectedArr = {
+  title: ReactNode;
+  value: string;
+}
+```
+
 ##### First way:
 
 ```ts
