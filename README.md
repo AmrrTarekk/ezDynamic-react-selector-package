@@ -316,7 +316,7 @@ export default App;
 
 ## Author
 
-- [**Amr Tarek**](https://www.linkedin.com/in/amrrtarekk/)
+- [**Amr Tarek**](https://www.linkedin.com/in/amrrtarekk/) - Mid Senior Frontend Developer
 
 ## License
 
