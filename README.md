@@ -39,7 +39,7 @@ Here are examples of how you can use it.
 const selectedArr = {
   title: ReactNode;
   value: string;
-}
+}[]
 ```
 
 ##### First way:
@@ -135,7 +135,7 @@ export default App;
 
 ##### or you can simply wrap your code inside of it and customize the selection condition as follows:
 
-**NOTE** This way is more simple to code as you will customize it as you wish and this is the moral of this package.
+**NOTE** This approach simplifies coding and allows you to fully customize it to suit your needs, which is the core value of this package.
 
 in this case you have to write your own style for the dropdown menu
 
@@ -316,7 +316,7 @@ export default App;
 
 ## Author
 
-- **Amr Tarek**[https://www.linkedin.com/in/amrrtarekk/]
+- **Amr Tarek**(https://www.linkedin.com/in/amrrtarekk/)
 
 ## License
 
