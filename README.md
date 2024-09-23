@@ -15,6 +15,7 @@ It's a versatile React component for dynamic selection scenarios. It provides an
 ## Install
 
 ```bash
+
 npm install ezdynamic-react-selector
 ```
 
