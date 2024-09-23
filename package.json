@@ -5,12 +5,23 @@
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AmrrTarekk/ezDynamic-react-selector-package"
+  },
   "scripts": {
     "build": "tsup",
     "watch": "tsup --watch"
   },
   "author": "AmrrTarekk",
   "license": "MIT",
+  "keywords": [
+    "react selector",
+    "selector",
+    "dynamic selection",
+    "typescript",
+    "javascript"
+  ],
   "devDependencies": {
     "@babel/compat-data": "7.19.4",
     "@babel/core": "^7.19.6",

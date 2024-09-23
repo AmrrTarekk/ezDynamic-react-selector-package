@@ -29,11 +29,11 @@ import { Selector } from "ezdynamic-react-selector";
 
 Here are examples of how you can use it.
 
-### Sinlge Selection: 
+### Sinlge Selection:
 
 #### Examples
 
-##### First way: 
+##### First way:
 
 ```ts
 import "ezdynamic-react-selector/dist/index.css";
@@ -122,8 +122,193 @@ export default App;
 }
 ```
 
-##### or you can simply wrap your code inside of it and customize the selection condition:
+#### Seocnd way:
 
-```ts 
+##### or you can simply wrap your code inside of it and customize the selection condition as follows:
 
+**NOTE** This way is more simple to code as you will customize it as you wish and this is the moral of this package.
+
+in this case you have to write your own style for the dropdown menu
+
+```ts
+<Selector
+  placeholder="Select Value"
+  label={selectedValue}
+  openMenu={open}
+  onToggle={() => handleToggle()}
+>
+  <div>
+    {arr.map((item, index) => (
+      <Fragment key={index}>
+        <div
+          className={`${styles.item} ${
+            selectedValue === item.value ? styles.selected : ""
+          }`}
+          onClick={() => setSelectedValue(item.value)}
+        >
+          <span>{item.title}</span>
+          {selectedValue === item.value && (
+            <span
+              onClick={(e) => {
+                e.stopPropagation();
+                setSelectedValue("");
+              }}
+            >
+              &#10060;
+            </span>
+          )}
+        </div>
+        {arr.length - 1 !== index && <hr />}
+      </Fragment>
+    ))}
+  </div>
+</Selector>
 ```
+
+CSS code as:
+
+```css
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 4px 7px;
+}
+
+.selected {
+  background-color: #a419161c;
+}
+```
+
+### Multiple Selections:
+
+Same as before but the label is changed to the selections the user would picked.
+
+```ts
+import "ezdynamic-react-selector/dist/index.css";
+import { Selector } from "ezdynamic-react-selector";
+import styles from "./App.module.css";
+import { Fragment, useState } from "react";
+
+const arr = [
+  {
+    title: "one",
+    value: "one",
+  },
+  {
+    title: "two",
+    value: "two",
+  },
+  {
+    title: "three",
+    value: "three",
+  },
+  {
+    title: "four",
+    value: "four",
+  },
+  {
+    title: "five",
+    value: "five",
+  },
+  {
+    title: "six ",
+    value: "six",
+  },
+];
+
+function App() {
+  const [open, setOpen] = useState(false);
+  const [selectedList, setSelectedList] = useState([]);
+
+  const handleToggle = () => {
+    setOpen(!open);
+  };
+
+  const removeItemFromList = (e, value) => {
+    e.stopPropagation();
+    setSelectedList((prev) => prev.filter((item) => item !== value));
+  };
+
+  return (
+    <div
+      className={styles.App}
+      style={{
+        padding: "20px",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+        }}
+      >
+        <Selector
+          placeholder="Select Value"
+          label={
+            selectedList.length > 0 && (
+              <div className={styles.selectedList}>
+                {selectedList.map((item, index) => (
+                  <span key={index}>{item}</span>
+                ))}
+              </div>
+            )
+          }
+          openMenu={open}
+          onToggle={() => handleToggle()}
+        >
+          <div>
+            {arr.map((item, index) => (
+              <Fragment key={index}>
+                <div
+                  className={`${styles.item} ${
+                    selectedList.includes(item.value) ? styles.selected : ""
+                  }`}
+                  onClick={() =>
+                    !selectedList.includes(item.value) &&
+                    setSelectedList((prev) => [...prev, item.value])
+                  }
+                >
+                  <span>{item.title}</span>
+                  {selectedList.includes(item.value) && (
+                    <span onClick={(e) => removeItemFromList(e, item.value)}>
+                      &#10060;
+                    </span>
+                  )}
+                </div>
+                {arr.length - 1 !== index && <hr />}
+              </Fragment>
+            ))}
+          </div>
+        </Selector>
+      </div>
+    </div>
+  );
+}
+
+export default App;
+```
+
+```css
+.selectedList {
+  display: flex;
+  gap: 10px;
+}
+```
+
+## Built With
+
+- [TSDX](https://tsdx.io/) - TSDX
+
+## Author
+
+- **Amr Tarek**[https://www.linkedin.com/in/amrrtarekk/]
+
+## License
+
+This project is licensed under the MIT License
